@@ -6,7 +6,7 @@ import scala.slick.jdbc.{ StaticQuery => Q }
 import java.sql.Date
 
 /* Domain Object representing an Image Record */
-case class ImageRecord(fileName: String, filePath: String, compression: Int, imageWidth: Long, imageLength: Long, xResolution: Long, yResolution: Long, id: Option[Int] = None)
+case class ImageRecord(fileName: String, filePath: String, fileDate: Date, compression: Int, imageWidth: Long, imageLength: Long, xResolution: Long, yResolution: Long, id: Option[Int] = None)
 
 /* Slick Table object.  The * projection has bi-directional mapping (<>) to ImageRecord */
 class ImageRecords(tag: Tag)
@@ -14,13 +14,15 @@ class ImageRecords(tag: Tag)
   def id = column[Int]("ID", O.PrimaryKey, O.AutoInc)
   def fileName = column[String]("FNAME")
   def filePath = column[String]("FPATH")
+  def fileDate = column[Date]("FILEDATE")
   def compression = column[Int]("COMPRESSION")
   def imageWidth = column[Long]("IMG_WIDTH")
   def imageLength = column[Long]("IMG_LENGTH")
   def xResolution = column[Long]("X_RESOLUTION")
   def yResolution = column[Long]("Y_RESOLUTION")
-  def * = (fileName, filePath, compression, imageWidth, imageLength, xResolution, yResolution, id.?) <> (ImageRecord.tupled, ImageRecord.unapply)
+  def * = (fileName, filePath, fileDate, compression, imageWidth, imageLength, xResolution, yResolution, id.?) <> (ImageRecord.tupled, ImageRecord.unapply)
   def fileNameIndex = index("IDX_FNAME", fileName, unique = false)
+  def fileDateIndex = index("IDX_FDATE", fileDate, unique = false)
   def imageWidthIndex = index("IDX_IMG_WIDTH", imageWidth, unique = false)
   def imageLengthIndex = index("IDX_IMG_LENGTH", imageLength, unique = false)
 }
