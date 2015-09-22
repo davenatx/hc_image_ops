@@ -63,10 +63,13 @@ object ImageReader extends LazyLogging {
 
 }
 
+/**
+ * Populate the database with TIFF informatoin from the image repository
+ */
 object PopulateDatabase extends App {
   dropTables
   createTables
-  val rootDir = new File("//ADINAS01/HC/R/1970/04")
+  val rootDir = new File("//ADINAS01/HC/R")
   ImageReader.readAndInsertFunc(rootDir)
 }
 
