@@ -55,7 +55,7 @@ object ImageReader extends LazyLogging {
    */
   private def dateFromPath(path: String): Date = {
     val arr = path.split(pattern)
-    Date.valueOf(arr(5) + "-" + arr(6) + "-" + arr(7))
+    Date.valueOf(arr(4) + "-" + arr(5) + "-" + arr(6))
   }
 
   /* Partially applied function */
@@ -69,7 +69,8 @@ object ImageReader extends LazyLogging {
 object PopulateDatabase extends App {
   dropTables
   createTables
-  val rootDir = new File("//ADINAS01/HC/R")
+  //val rootDir = new File("//ADINAS01/HC/R")
+  val rootDir = new File("C:/ADINAS01/HC/R")
   ImageReader.readAndInsertFunc(rootDir)
 }
 
