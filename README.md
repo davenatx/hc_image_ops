@@ -231,7 +231,7 @@ COUNT(*)
 3
 ````
 
-##Outcomes for images where image length is less than image width:
+##Action Plan for images where image length is less than image width:
 
 * For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment.
 * For the 2 images in this segment with 200 DPI, handle these manually
