@@ -31,3 +31,132 @@ Query all the records and order by IMG_LENGTH in descending order:
 ````
 SELECT * FROM IMAGE_RECORDS ORDER BY IMG_LENGTH DESC;
 ````
+
+Query distinct image lengths where resolution is 300:
+
+````
+SELECT DISTINCT IMG_LENGTH
+FROM IMAGE_RECORDS 
+WHERE X_RESOLUTION = 300
+ORDER BY IMG_LENGTH DESC;
+````
+
+Find the average image length where the length is between 5000 and 5999:
+
+````
+SELECT DISTINCT AVG(IMG_LENGTH)
+FROM IMAGE_RECORDS 
+WHERE X_RESOLUTION = 300
+AND IMG_LENGTH BETWEEN 5000 AND 5999
+
+AVG(IMG_LENGTH)  
+5527
+````
+
+Find the number of records in the database:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+
+COUNT(*)  
+354623
+````
+
+Find the number of records where the X_RESOLUTION does not equial the Y_RESOLUTION:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE X_RESOLUTION != Y_RESOLUTION
+
+COUNT(*)  
+0
+````
+
+Find the distinct X_RESOLUTIONs:
+
+````
+SELECT DISTINCT X_RESOLUTION
+FROM IMAGE_RECORDS;
+
+X_RESOLUTION  
+240
+72
+96
+300
+400
+200
+````
+
+
+Find the number of images with an X_RESOLTUION of 400:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE X_RESOLUTION = 400
+
+COUNT(*)  
+276
+````
+
+Find the number of images with an X_RESOLTUION of 300:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE X_RESOLUTION = 300
+
+COUNT(*)  
+70008
+````
+
+Find the number of images with an X_RESOLTUION of 240:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE X_RESOLUTION = 240
+
+COUNT(*)  
+25701
+````
+
+Find the number of images with an X_RESOLTUION of 200:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE X_RESOLUTION = 200
+
+COUNT(*)  
+258341
+````
+
+Find the number of images with an X_RESOLTUION of 72:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE X_RESOLUTION = 96
+
+COUNT(*)  
+1
+````
+
+Find the number of images with an X_RESOLTUION of 72:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE X_RESOLUTION = 72
+
+COUNT(*)  
+269
+````
+
+##Findings
+
+* The majority of the images in this repostitory have a resolution of 300DPI.  However, there are also some images with a resolution of 400DPI.
+* 
