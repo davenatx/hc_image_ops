@@ -43,7 +43,7 @@ WHERE X_RESOLUTION = 300
 ORDER BY IMG_LENGTH DESC;
 ````
 
-Find the average image length where the length is between 5000 and 5999:
+Find the average image length where the length is between 5000 and 5999 for 300 DPI::
 
 ````
 SELECT DISTINCT AVG(IMG_LENGTH)
@@ -65,7 +65,7 @@ COUNT(*)
 354623
 ````
 
-Find the number of records where the X_RESOLUTION does not equial the Y_RESOLUTION:
+Find the number of records where the X_RESOLUTION does not equal the Y_RESOLUTION:
 
 ````
 SELECT COUNT(*)
@@ -136,7 +136,7 @@ COUNT(*)
 258341
 ````
 
-Find the number of images with an X_RESOLTUION of 72:
+Find the number of images with an X_RESOLTUION of 96:
 
 ````
 SELECT COUNT(*)
@@ -231,7 +231,9 @@ COUNT(*)
 3
 ````
 
-##Findings
+##Outcomes for images where image length is less than image width:
 
-* The majority of the images in this repostitory have a resolution of 300DPI.  However, there are also some images with a resolution of 400DPI.
-* 
+* For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment.
+* For the 2 images in this segment with 200 DPI, handle these manually
+* For the 19,076 images in this segment with 300 DPI, use an image length of 5527 (calculated above) as the image length for the image to overlay on.
+* For the 3 images in this segment with 400 DPI, handle these manually  
