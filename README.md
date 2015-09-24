@@ -29,7 +29,9 @@ CREATE INDEX IDX_IMG_LENTH_DESC ON IMAGE_RECORDS(IMG_LENGTH DESC);
 Query all the records and order by IMG_LENGTH in descending order:
 
 ````
-SELECT * FROM IMAGE_RECORDS ORDER BY IMG_LENGTH DESC;
+SELECT * 
+FROM IMAGE_RECORDS
+ORDER BY IMG_LENGTH DESC;
 ````
 
 Query distinct image lengths where resolution is 300:
@@ -47,7 +49,7 @@ Find the average image length where the length is between 5000 and 5999:
 SELECT DISTINCT AVG(IMG_LENGTH)
 FROM IMAGE_RECORDS 
 WHERE X_RESOLUTION = 300
-AND IMG_LENGTH BETWEEN 5000 AND 5999
+AND IMG_LENGTH BETWEEN 5000 AND 5999;
 
 AVG(IMG_LENGTH)  
 5527
@@ -57,7 +59,7 @@ Find the number of records in the database:
 
 ````
 SELECT COUNT(*)
-FROM IMAGE_RECORDS
+FROM IMAGE_RECORDS;
 
 COUNT(*)  
 354623
@@ -68,7 +70,7 @@ Find the number of records where the X_RESOLUTION does not equial the Y_RESOLUTI
 ````
 SELECT COUNT(*)
 FROM IMAGE_RECORDS
-WHERE X_RESOLUTION != Y_RESOLUTION
+WHERE X_RESOLUTION != Y_RESOLUTION;
 
 COUNT(*)  
 0
@@ -95,7 +97,7 @@ Find the number of images with an X_RESOLTUION of 400:
 ````
 SELECT COUNT(*)
 FROM IMAGE_RECORDS
-WHERE X_RESOLUTION = 400
+WHERE X_RESOLUTION = 400;
 
 COUNT(*)  
 276
@@ -106,7 +108,7 @@ Find the number of images with an X_RESOLTUION of 300:
 ````
 SELECT COUNT(*)
 FROM IMAGE_RECORDS
-WHERE X_RESOLUTION = 300
+WHERE X_RESOLUTION = 300;
 
 COUNT(*)  
 70008
@@ -117,7 +119,7 @@ Find the number of images with an X_RESOLTUION of 240:
 ````
 SELECT COUNT(*)
 FROM IMAGE_RECORDS
-WHERE X_RESOLUTION = 240
+WHERE X_RESOLUTION = 240;
 
 COUNT(*)  
 25701
@@ -128,7 +130,7 @@ Find the number of images with an X_RESOLTUION of 200:
 ````
 SELECT COUNT(*)
 FROM IMAGE_RECORDS
-WHERE X_RESOLUTION = 200
+WHERE X_RESOLUTION = 200;
 
 COUNT(*)  
 258341
@@ -139,7 +141,7 @@ Find the number of images with an X_RESOLTUION of 72:
 ````
 SELECT COUNT(*)
 FROM IMAGE_RECORDS
-WHERE X_RESOLUTION = 96
+WHERE X_RESOLUTION = 96;
 
 COUNT(*)  
 1
@@ -150,10 +152,83 @@ Find the number of images with an X_RESOLTUION of 72:
 ````
 SELECT COUNT(*)
 FROM IMAGE_RECORDS
-WHERE X_RESOLUTION = 72
+WHERE X_RESOLUTION = 72;
 
 COUNT(*)  
 269
+````
+
+Find the number of images where the image length is less than the image width:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE IMG_LENGTH < IMG_WIDTH;
+
+COUNT(*)  
+19265
+````
+
+Find the X_RESOLUTIONs that exist in the set of images where the image length is less than the image width:
+
+````
+SELECT DISTINCT(X_RESOLUTION)
+FROM IMAGE_RECORDS
+WHERE IMG_LENGTH < IMG_WIDTH;
+
+X_RESOLUTION  
+72
+200
+300
+400
+````
+
+Find the number of images where the X_RESOLUTION is 72 and the image length is less than the image width:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE IMG_LENGTH < IMG_WIDTH
+AND X_RESOLUTION = 72;
+
+COUNT(*)  
+184
+````
+
+Find the number of images where the X_RESOLUTION is 200 and the image length is less than the image width:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE IMG_LENGTH < IMG_WIDTH
+AND X_RESOLUTION = 200;
+
+COUNT(*)  
+2
+````
+
+Find the number of images where the X_RESOLUTION is 300 and the image length is less than the image width:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE IMG_LENGTH < IMG_WIDTH
+AND X_RESOLUTION = 300;
+
+COUNT(*)  
+19076
+````
+
+Find the number of images where the X_RESOLUTION is 400 and the image length is less than the image width:
+
+````
+SELECT COUNT(*)
+FROM IMAGE_RECORDS
+WHERE IMG_LENGTH < IMG_WIDTH
+AND X_RESOLUTION = 400;
+
+COUNT(*)  
+3
 ````
 
 ##Findings
