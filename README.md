@@ -231,7 +231,7 @@ COUNT(*)
 3
 ````
 
-Find bad images where the IMG_LENGTH is 1:
+Find "bad" images where the IMG_LENGTH is 1:
 
 ````
 SELECT *
