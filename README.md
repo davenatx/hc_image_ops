@@ -231,6 +231,18 @@ COUNT(*)
 3
 ````
 
+Find bad images where the IMG_LENGTH is 1:
+
+````
+SELECT *
+FROM IMAGE_RECORDS
+WHERE IMG_LENGTH = 1;
+
+FNAME  	    FPATH  	                    FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION  	ID  
+127284.007	\HC\R\1979\03\27	        1979-03-27	4	            1696	    1	            200	            200	            221926
+171445.001	\HC\R\1983\06\28	        1983-06-28	4	            1696	    1	            200	            200	            287401
+````
+
 ##Action Plan for images where image length is less than image width:
 
 * For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment.  
