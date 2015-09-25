@@ -1,5 +1,5 @@
 # hc_image_ops
-The purpose of this project is to identify cropped images (images where the image width is greater than image length) and overlay the image onto a standard size page.  This is accomplished by reading the "HC" image repository and inserting a database record representing in this H2 database for each TIFF file.  This step is necessary because we need to use SQL to investigate this data to determine how to complete this project.  For example, we need to not only determine which images are "cropped", but we also need to identify the different reslutions in order to create a process to handle them.
+The purpose of this project is to identify cropped images (images where the image width is greater than image length) and overlay the image onto a standard size page.  This is accomplished by reading the "HC" image repository and inserting a database record representing each TIFF image into the included H2 database.  This step is necessary because we need to use SQL to investigate this data to determine how to complete this project.  For example, we need to not only determine which images are "cropped", but we also need to identify the different resolutions in order to create a process to "fix" them.
 
 All of the images presently in the "HC" image repository are read and stored in the accompanying H2 database.  
 
