@@ -1,5 +1,5 @@
 # hc_image_ops
-The purpose of this project is to identify cropped images (image width is greater than image length) and overlay the image onto a standard size page.  This is accomplished by reading the "HC" image repository and inserting a database record representing each TIFF file.  This step is necessary because we need to use SQL to investigate this data to determine how to complete this project.  For example, we need to determine which images are "cropped".  This is most likely going to be images where the length is less than the width.  Next we need to determine what the default length of the template image should be we overlay the cropped image onto.  
+The purpose of this project is to identify cropped images (images where the image width is greater than image length) and overlay the image onto a standard size page.  This is accomplished by reading the "HC" image repository and inserting a database record representing in this H2 database for each TIFF file.  This step is necessary because we need to use SQL to investigate this data to determine how to complete this project.  For example, we need to not only determine which images are "cropped", but we also need to identify the different reslutions in order to create a process to handle them.
 
 All of the images presently in the "HC" image repository are read and stored in the accompanying H2 database.  
 
@@ -233,7 +233,12 @@ COUNT(*)
 
 ##Action Plan for images where image length is less than image width:
 
-* For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment.
+* For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment.  
 * For the 2 images in this segment with 200 DPI, handle these manually
+  * \\ADINAS01\HC\R\1979\03\27\127284.007	
+  * \\ADINAS01\HC\R\1983\06\28\171445.001
 * For the 19,076 images in this segment with 300 DPI, use an image length of 5527 (calculated above) as the image length for the image to overlay on.
-* For the 3 images in this segment with 400 DPI, handle these manually  
+* For the 3 images in this segment with 400 DPI, handle these manually
+  * \\ADINAS01\HC\R\1943\10\04\1943128046.001
+  * \\ADINAS01\HC\R\1964\03\23\49080.001
+  * \\ADINAS01\HC\R\1973\11\06\85188.016
