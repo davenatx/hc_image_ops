@@ -235,10 +235,10 @@ COUNT(*)
 
 * For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment.  
 * For the 2 images in this segment with 200 DPI, handle these manually
-  * \\ADINAS01\HC\R\1979\03\27\127284.007	
-  * \\ADINAS01\HC\R\1983\06\28\171445.001
+  * \HC\R\1979\03\27\127284.007	
+  * \HC\R\1983\06\28\171445.001
 * For the 19,076 images in this segment with 300 DPI, use an image length of 5527 (calculated above) as the image length for the image to overlay on.
 * For the 3 images in this segment with 400 DPI, handle these manually
-  * \\ADINAS01\HC\R\1943\10\04\1943128046.001
-  * \\ADINAS01\HC\R\1964\03\23\49080.001
-  * \\ADINAS01\HC\R\1973\11\06\85188.016
+  * \HC\R\1943\10\04\1943128046.001
+  * \HC\R\1964\03\23\49080.001
+  * \HC\R\1973\11\06\85188.016
