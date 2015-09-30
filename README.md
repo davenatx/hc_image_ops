@@ -245,14 +245,22 @@ SELECT *
 FROM IMAGE_RECORDS
 WHERE IMG_LENGTH = 1;
 
-FNAME  	    FPATH  	                    FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION  	ID  
-127284.007	\HC\R\1979\03\27	        1979-03-27	4	            1696	    1	            200	            200	            221926
-171445.001	\HC\R\1983\06\28	        1983-06-28	4	            1696	    1	            200	            200	            287401
+FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION  	ID  
+127284.007	\HC\R\1979\03\27   1979-03-27	4	            1696	    1	            200	            200	            221926
+171445.001	\HC\R\1983\06\28   1983-06-28	4	            1696	    1	            200	            200	            287401
 ````
 
 ##Identified Cropped Image Segments
 
-* For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment. 
+* For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment.
+  * It appears these images are really 300 DPI images that were cropped and had the resolution incorrectly set:
+  
+  ````
+  FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION  	ID  
+  53255.001	    \HC\R\1965\09\23   1965-09-23	4	            3568	    5536	        300	            300	            119627
+  53255.002	    \HC\R\1965\09\23   1965-09-23	4	            3568	    5536	        300	            300	            119628
+  53255.003     \HC\R\1965\09\23   1965-09-23	4	            3568	    1859	        72	            72	            119629
+  ````
 
 * For the 2 images in this segment with 200 DPI, handle these **manually**:
   * \HC\R\1979\03\27\127284.007 **(Bad Image)**
@@ -264,3 +272,16 @@ FNAME  	    FPATH  	                    FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG
   * \HC\R\1943\10\04\1943128046.001 **(Plat)**
   * \HC\R\1964\03\23\49080.001 **(Plat)**
   * \HC\R\1973\11\06\85188.016 **(CCR Map)**
+
+##Solution Overview
+
+Outline of high-level approach:
+
+1. Determine if each FNAME (filename) in the database is unique.
+
+2. Determine an average image length (calculated above) to use as a default iamge length for the image to overlay on.
+
+3. Query cropped images by resolution and year.
+
+4. 
+
