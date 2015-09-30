@@ -7,14 +7,14 @@ All of the images presently in the "HC" image repository are read and stored in 
 
 This database has one table, IMAGE_RECORDS.  This table has the following fields:
 
-  *FNAME - File Name
-  *FPATH - File Path
-  *FILEDATE - File Date created by the image repository path. e.g. .../YYYY/MM/DD
-  *COMPRESSION - TIFF compression
-  *IMG_WIDTH - Pixel Width of Image
-  *IMG_LENGTH - Pixel Length of Image
-  *X_RESOLUTION - X Resolution in DPI
-  *Y_RESOLUTION - Y Resolution in DPI
+  * FNAME - File Name
+  * FPATH - File Path
+  * FILEDATE - File Date created by the image repository path. e.g. .../YYYY/MM/DD
+  * COMPRESSION - TIFF compression
+  * IMG_WIDTH - Pixel Width of Image
+  * IMG_LENGTH - Pixel Length of Image
+  * X_RESOLUTION - X Resolution in DPI
+  * Y_RESOLUTION - Y Resolution in DPI
 
 ##SQL
 
