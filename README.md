@@ -264,15 +264,17 @@ FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  
   ````
 
 * For the 2 images in this segment with 200 DPI, handle these **manually**:
-  * \HC\R\1979\03\27\127284.007 **(Bad Image)**
-  * \HC\R\1983\06\28\171445.001 **(Bad Image)**
+  
+  \HC\R\1979\03\27\127284.007 **(Bad Image)**
+  \HC\R\1983\06\28\171445.001 **(Bad Image)**
 
 * For the 19,076 images in this segment with 300 DPI, use an image length of 5527 (calculated above) as the image length for the image to overlay on.
 
 * For the 3 images in this segment with 400 DPI, handle these **manually**:
-  * \HC\R\1943\10\04\1943128046.001 **(Plat)**
-  * \HC\R\1964\03\23\49080.001 **(Plat)**
-  * \HC\R\1973\11\06\85188.016 **(CCR Map)**
+  
+  \HC\R\1943\10\04\1943128046.001 **(Plat)**
+  \HC\R\1964\03\23\49080.001 **(Plat)**
+  \HC\R\1973\11\06\85188.016 **(CCR Map)**
 
 ##Solution Overview
 
