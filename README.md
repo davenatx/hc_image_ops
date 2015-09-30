@@ -8,12 +8,19 @@ All of the images presently in the "HC" image repository are read and stored in 
 This database has one table, IMAGE_RECORDS.  This table has the following fields:
 
 * FNAME - File Name
+
 * FPATH - File Path
+
 * FILEDATE - File Date created by the image repository path. e.g. .../YYYY/MM/DD
+
 * COMPRESSION - TIFF compression
+
 * IMG_WIDTH - Pixel Width of Image
+
 * IMG_LENGTH - Pixel Length of Image
+
 * X_RESOLUTION - X Resolution in DPI
+
 * Y_RESOLUTION - Y Resolution in DPI
 
 ##SQL
@@ -231,7 +238,7 @@ COUNT(*)
 3
 ````
 
-Find "bad" images where the IMG_LENGTH is 1:
+Find **bad** images where the IMG_LENGTH is 1:
 
 ````
 SELECT *
@@ -245,11 +252,14 @@ FNAME  	    FPATH  	                    FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG
 
 ##Cropped Image Segments:
 
-* For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment.  
+* For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment. 
+
 * For the 2 images in this segment with 200 DPI, handle these **manually**:
   * \HC\R\1979\03\27\127284.007 **(Bad Image)**
   * \HC\R\1983\06\28\171445.001 **(Bad Image)**
+
 * For the 19,076 images in this segment with 300 DPI, use an image length of 5527 (calculated above) as the image length for the image to overlay on.
+
 * For the 3 images in this segment with 400 DPI, handle these **manually**:
   * \HC\R\1943\10\04\1943128046.001 **(Plat)**
   * \HC\R\1964\03\23\49080.001 **(Plat)**
