@@ -72,6 +72,16 @@ COUNT(*)
 354623
 ````
 
+Find the number of unique file names in the database:
+
+````
+SELECT DISTINCT COUNT(FNAME)
+FROM IMAGE_RECORDS;
+
+COUNT(FNAME)  
+354623
+````
+
 Find the number of records where the X_RESOLUTION does not equal the Y_RESOLUTION:
 
 ````
@@ -280,11 +290,24 @@ FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  
 
 Outline of high-level approach:
 
-1. Determine if each FNAME (filename) in the database is unique.
+1. Determine if each FNAME (filename) in the database is unique. **Yes**
 
-2. Determine an average image length (calculated above) to use as a default iamge length for the image to overlay on.
+2. Determine an average image length to use as a default iamge length for the image to overlay on.  Becuase the 72 DPI images are really 300 DPI images, use one factor.  The average image length calculated above is 5527.  However, it appears 5536 is the most common image length in this semgent.  **which one should I use?**
 
-3. Query cropped images by resolution and year.
+3. Query the cropped images that are 72 DPI or 300 DPI together becuase they are really the same resolution.
 
-4. 
+  ````
+  SELECT COUNT(*)
+  FROM IMAGE_RECORDS
+  WHERE IMG_LENGTH < IMG_WIDTH
+  AND (X_RESOLUTION = 300 OR X_RESOLUTION=72);
+  
+  COUNT(*)  
+  19260
+  ````
 
+4. Process the results, and overwrite the existing local image with the OverlayImage.overlay().
+
+5. For each image that is overlayed, update the OVERLAY field in the database to true. **I need to alter table to add this column as a boolean with a default value of false**
+
+6. After these images have been "fixed" I need to devise a way to export the images where OVERLAY = true.  I not only neeed to export the overlayed images, but I need to include all of their pages.  I would like to do this by year.  Therefore, the images should be exported to a yearly folder.  From here, we can QC them, and if we are happy, we can index them to replace the cropped images on the image repository.
