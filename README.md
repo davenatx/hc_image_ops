@@ -250,7 +250,7 @@ FNAME  	    FPATH  	                    FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG
 171445.001	\HC\R\1983\06\28	        1983-06-28	4	            1696	    1	            200	            200	            287401
 ````
 
-##Cropped Image Segments:
+##Identified Cropped Image Segments:
 
 * For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment. 
 
