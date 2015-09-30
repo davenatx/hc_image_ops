@@ -253,7 +253,8 @@ FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  
 ##Identified Cropped Image Segments
 
 * For the 184 images in this segment with 72 DPI, determine the proper image length for the image to overlay on and process this segment.
-  * It appears these images are really 300 DPI images that were cropped and had the resolution incorrectly set:
+  
+  It appears these images are really 300 DPI images that were cropped and had the resolution incorrectly set:
   
   ````
   FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION  	ID  
