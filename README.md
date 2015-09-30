@@ -287,7 +287,7 @@ Outline of high-level approach:
 
 2. Determine an average image length to use as a default iamge length for the image to overlay on.  Becuase the 72 DPI images are really 300 DPI images, use one factor.  The average image length calculated above is 5527.  However, it appears 5536 is the most common image length in this semgent.  **which one should I use?**
 
-3. Query the cropped images that are 72 DPI or 300 DPI together becuase they are really the same resolution.
+3. Query the cropped images that are 72 DPI or 300 DPI together becuase they are really the same resolution:
 
   ````
   SELECT COUNT(*)
