@@ -5,30 +5,29 @@ import scala.slick.jdbc.{ StaticQuery => Q }
 
 import java.sql.Date
 
-/* Domain Object representing an Image Record */
-case class ImageRecord(fileName: String, filePath: String, fileDate: Date, compression: Int, imageWidth: Long, imageLength: Long, xResolution: Long, yResolution: Long, id: Option[Int] = None)
+object DBImageRecord {
 
-/* Slick Table object.  The * projection has bi-directional mapping (<>) to ImageRecord */
-class ImageRecords(tag: Tag)
-    extends Table[ImageRecord](tag, "IMAGE_RECORDS") {
-  def id = column[Int]("ID", O.PrimaryKey, O.AutoInc)
-  def fileName = column[String]("FNAME")
-  def filePath = column[String]("FPATH")
-  def fileDate = column[Date]("FILEDATE")
-  def compression = column[Int]("COMPRESSION")
-  def imageWidth = column[Long]("IMG_WIDTH")
-  def imageLength = column[Long]("IMG_LENGTH")
-  def xResolution = column[Long]("X_RESOLUTION")
-  def yResolution = column[Long]("Y_RESOLUTION")
-  def * = (fileName, filePath, fileDate, compression, imageWidth, imageLength, xResolution, yResolution, id.?) <> (ImageRecord.tupled, ImageRecord.unapply)
-  def fileNameIndex = index("IDX_FNAME", fileName, unique = false)
-  def fileDateIndex = index("IDX_FDATE", fileDate, unique = false)
-  def imageWidthIndex = index("IDX_IMG_WIDTH", imageWidth, unique = false)
-  def imageLengthIndex = index("IDX_IMG_LENGTH", imageLength, unique = false)
-}
+  /* Domain Object representing an Image Record */
+  case class ImageRecord(fileName: String, filePath: String, fileDate: Date, compression: Int, imageWidth: Long, imageLength: Long, xResolution: Long, yResolution: Long, isOverlayed: Boolean, id: Option[Int] = None)
 
-/* Helper ojbect to perform Database operations */
-object DBHelpers {
+  /* Slick Table object.  The * projection has bi-directional mapping (<>) to ImageRecord */
+  class ImageRecords(tag: Tag) extends Table[ImageRecord](tag, "IMAGE_RECORDS") {
+    def id = column[Int]("ID", O.PrimaryKey, O.AutoInc)
+    def fileName = column[String]("FNAME")
+    def filePath = column[String]("FPATH")
+    def fileDate = column[Date]("FILEDATE")
+    def compression = column[Int]("COMPRESSION")
+    def imageWidth = column[Long]("IMG_WIDTH")
+    def imageLength = column[Long]("IMG_LENGTH")
+    def xResolution = column[Long]("X_RESOLUTION")
+    def yResolution = column[Long]("Y_RESOLUTION")
+    def isOverlayed = column[Boolean]("IS_OVERLAYED", O.Default(false))
+    def * = (fileName, filePath, fileDate, compression, imageWidth, imageLength, xResolution, yResolution, isOverlayed, id.?) <> (ImageRecord.tupled, ImageRecord.unapply)
+    def fileNameIndex = index("IDX_FNAME", fileName, unique = true)
+    def fileDateIndex = index("IDX_FDATE", fileDate, unique = false)
+    def imageWidthIndex = index("IDX_IMG_WIDTH", imageWidth, unique = false)
+    def imageLengthIndex = index("IDX_IMG_LENGTH", imageLength, unique = false)
+  }
 
   /* The query interface for the IndexRecords table */
   val imageRecords: TableQuery[ImageRecords] = TableQuery[ImageRecords]
