@@ -27,6 +27,7 @@ object DBImageRecord {
     def fileDateIndex = index("IDX_FDATE", fileDate, unique = false)
     def imageWidthIndex = index("IDX_IMG_WIDTH", imageWidth, unique = false)
     def imageLengthIndex = index("IDX_IMG_LENGTH", imageLength, unique = false)
+    def isOverlayedIndex = index("IDX_IS_OVERLAY", isOverlayed, unique = false)
   }
 
   /* The query interface for the IndexRecords table */
