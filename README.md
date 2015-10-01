@@ -288,7 +288,7 @@ Outline of high-level approach:
 
 2. Determine an average image length to use as a default iamge length for the image to overlay on.  Becuase the 72 DPI images are really 300 DPI images, use one factor.  The average image length calculated above is 5527.  However, it appears 5536 is the most common image length in this semgent.  **which one should I use?**
 
-3. Query the cropped images that are 72 DPI or 300 DPI together becuase they are really the same resolution:
+3. Query the cropped images that are 72 DPI or 300 DPI together becuase they are **really** the same resolution:
 
   ````
   SELECT COUNT(*)
@@ -302,6 +302,6 @@ Outline of high-level approach:
 
 4. Process the results, and overwrite the existing local image with the OverlayImage.overlay().
 
-5. For each image that is overlayed, update the OVERLAY field in the database to true. **I need to alter table to add this column as a boolean with a default value of false**
+5. For each image that is overlayed, update the IS_OVERLAYED field in the database to true.
 
-6. After these images have been "fixed" I need to devise a way to export the images where OVERLAY = true.  I not only neeed to export the overlayed images, but I need to include all of their pages.  I would like to do this by year.  Therefore, the images should be exported to a yearly folder.  From here, we can QC them, and if we are happy, we can index them to replace the cropped images on the image repository.
+6. After these images have been "fixed" I need to devise a way to export the images where IS_OVERLAYED = true.  I not only neeed to export the overlayed images, but I need to include all of their pages.  I would like to do this by year.  Therefore, the images should be exported to a yearly folder.  From here, we can QC them, and if we are happy, we can index them to replace the cropped images on the image repository.
