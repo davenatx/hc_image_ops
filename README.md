@@ -20,7 +20,7 @@ This database has one table, IMAGE_RECORDS.  This table has the following fields
 
 Below is some helpful SQL for investigating this database:
 
-This SQL creates an index on the IMG_LENGTH field and orders it in descending order.  It is necessary because it helps H2 perform order by operations:
+This SQL creates an index on the IMG_LENGTH field and orders it in descending order.  Presently, there does not appear to be a way for Slick 2 to do this:  https://github.com/slick/slick/issues/1035.  This is necessary because it helps H2 perform order by operations:
 
 ````
 CREATE INDEX IDX_IMG_LENTH_DESC ON IMAGE_RECORDS(IMG_LENGTH DESC);  
