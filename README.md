@@ -15,6 +15,7 @@ This database has one table, IMAGE_RECORDS.  This table has the following fields
   * IMG_LENGTH - Pixel Length of Image
   * X_RESOLUTION - X Resolution in DPI
   * Y_RESOLUTION - Y Resolution in DPI
+  * IS_OVERLAYED - Indicates if the image has been overlayed
 
 ##SQL
 
