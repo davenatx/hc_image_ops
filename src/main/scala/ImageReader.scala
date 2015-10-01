@@ -2,7 +2,7 @@ package com.austindata
 
 import java.io.File
 import com.dmp.image.TIFFImage
-import DBHelpers._
+import DBImageRecord._
 import com.typesafe.scalalogging.LazyLogging
 import java.sql.Date
 import java.util.regex.Pattern
@@ -41,7 +41,8 @@ object ImageReader extends LazyLogging {
           img.imageWidth.getOrElse(0),
           img.imageLength.getOrElse(0),
           img.xResolution.getOrElse(0),
-          img.yResolution.getOrElse(0)
+          img.yResolution.getOrElse(0),
+          false
         )
       )
     })
