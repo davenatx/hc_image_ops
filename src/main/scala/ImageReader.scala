@@ -6,6 +6,7 @@ import DBImageRecord._
 import com.typesafe.scalalogging.LazyLogging
 import java.sql.Date
 import java.util.regex.Pattern
+import scala.util.{ Try, Success, Failure }
 
 object ImageReader extends LazyLogging {
 
@@ -32,19 +33,28 @@ object ImageReader extends LazyLogging {
     logger.info("Processing File: " + file.getName + ", Dir: " + file.getParent)
     /* These are all single page TIFF files so headOption is OK to use becuase there is only one page */
     TIFFImage.fromFile(file).headOption map (img => {
-      insert(
-        ImageRecord(
-          file.getName,
-          file.getParent,
-          dateFromPath(file.getParent),
-          img.compression.getOrElse(0),
-          img.imageWidth.getOrElse(0),
-          img.imageLength.getOrElse(0),
-          img.xResolution.getOrElse(0),
-          img.yResolution.getOrElse(0),
-          false
-        )
+      val imageRecord = ImageRecord(
+        file.getName,
+        file.getParent,
+        dateFromPath(file.getParent),
+        img.compression.getOrElse(0),
+        img.imageWidth.getOrElse(0),
+        img.imageLength.getOrElse(0),
+        img.xResolution.getOrElse(0),
+        img.yResolution.getOrElse(0),
+        false
       )
+
+      // Log warning message if DB exception occurs
+      Try(insert(imageRecord)) match {
+        case Failure(thrown) => {
+          logger.warn("Failed to insert: " + imageRecord + "; Exception: " + thrown)
+        }
+        case Success(s) => {
+          logger.debug("Inserted: " + imageRecord)
+        }
+      }
+
     })
   }
 
@@ -70,7 +80,6 @@ object ImageReader extends LazyLogging {
 object PopulateDatabase extends App {
   dropTables
   createTables
-  //val rootDir = new File("//ADINAS01/HC/R")
   val rootDir = new File("C:/ADINAS01/HC/R")
   ImageReader.readAndInsertFunc(rootDir)
 }
