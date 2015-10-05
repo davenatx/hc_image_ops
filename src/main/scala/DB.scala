@@ -71,6 +71,7 @@ object DBImageRecord {
       FROM IMAGE_RECORDS
       WHERE IMG_LENGTH < IMG_WIDTH
       AND (X_RESOLUTION = 300 OR X_RESOLUTION=72)
+      AND IS_OVERLAYED = false
       ORDER BY FILEDATE
       """).list
     }
@@ -89,4 +90,27 @@ object DBImageRecord {
       updateOverlay(isOverlay, imageRecord.id.getOrElse(-1)).first
     }
   }
+
+  /**
+  *
+  * REPL Code to test overlaying concept.  Everything appears to work propertly
+  *
+  import java.io.File
+  import com.dmp.image._
+  import com.austindata.DBImageRecord._
+
+  val croppedRecords = croppedImages
+
+  val croppedRecord = croppedImages.head
+
+  val f = new File(croppedRecord.filePath, croppedRecord.fileName)
+
+  // res5: Option[Boolean] = Some(true)
+  TIFFImage.fromFile(f).headOption map (img => {
+    val newImage = OverlayImage.overlay(img, croppedRecord.imageWidth.toInt, 5536)
+    TIFFImage.toFile(f, List(newImage))
+  })
+
+  val numUpdates = updateIsOverlay(croppedRecord, true)
+  */
 }
