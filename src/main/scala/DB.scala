@@ -1,7 +1,7 @@
 package com.austindata
 
 import scala.slick.driver.H2Driver.simple._
-import scala.slick.jdbc.{ StaticQuery => Q }
+import scala.slick.jdbc.{ GetResult, StaticQuery => Q }
 
 import java.sql.Date
 
@@ -60,38 +60,20 @@ object DBImageRecord {
     }
   }
 
-  /*
-  
-  /* Domain object representing the fields returned by OPRRecordsByYear */
-  case class QueryRecord(recordType: String, documentType: String, volume: String, page: String, fileDate: Date, fileName: String)
+  // Implicit conversion to map ResultSet to ImageRecord
+  implicit val getImageRecordResult = GetResult(r => ImageRecord(r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<))
 
-
-  /* Query OPR Records by Year.  This is a distinct query because records can be represented multiple times due to the number of parties, etc... */
-  def OPRRecordsByYear(year: String): List[QueryRecord] = {
+  /* Query to retrieve cropped images where the DPI is 300 or 72 */
+  def croppedImages: List[ImageRecord] = {
     database withSession { implicit session =>
+      Q.queryNA[ImageRecord]("""
+      SELECT *
+      FROM IMAGE_RECORDS
+      WHERE IMG_LENGTH < IMG_WIDTH
+      AND (X_RESOLUTION = 300 OR X_RESOLUTION=72)
+      ORDER BY FILEDATE
+      """).list
 
-      val query = Q.query[String, (String, String, String, String, Date, String)]("""
-      SELECT DISTINCT RECTYP, DOCTYP, VOLUME, CAST(PAGE as INT), FILEDATE, FNAME 
-      FROM INDEX_RECORDS 
-      WHERE EXTRACT(YEAR FROM FILEDATE) = ? AND RECTYP = 'OPR' ORDER BY VOLUME, CAST(PAGE as INT), FNAME 
-    """)
-
-      query(year).list map (r => QueryRecord(r._1, r._2, r._3, r._4, r._5, r._6))
     }
   }
-
-  /* Query Records by Year.  This is a distinct query because records can be represented multiple times due to the number of parties, etc... */
-  def recordsByYear(year: String): List[QueryRecord] = {
-    database withSession { implicit session =>
-
-      val query = Q.query[String, (String, String, String, String, Date, String)]("""
-      SELECT DISTINCT RECTYP, DOCTYP, VOLUME, PAGE, FILEDATE, FNAME 
-      FROM INDEX_RECORDS 
-      WHERE EXTRACT(YEAR FROM FILEDATE) = ? ORDER BY VOLUME, PAGE, FILEDATE 
-    """)
-
-      query(year).list map (r => QueryRecord(r._1, r._2, r._3, r._4, r._5, r._6))
-    }
-  }
-  */
 }
