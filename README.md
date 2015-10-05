@@ -63,7 +63,7 @@ SELECT COUNT(*)
 FROM IMAGE_RECORDS;
 
 COUNT(*)  
-354623
+354579
 ````
 
 Find the number of unique file names in the database:
@@ -73,7 +73,7 @@ SELECT DISTINCT COUNT(FNAME)
 FROM IMAGE_RECORDS;
 
 COUNT(FNAME)  
-354623
+354579
 ````
 
 Find the number of records where the X_RESOLUTION does not equal the Y_RESOLUTION:
@@ -122,7 +122,7 @@ FROM IMAGE_RECORDS
 WHERE X_RESOLUTION = 300;
 
 COUNT(*)  
-70008
+69976
 ````
 
 Find the number of images with an X_RESOLTUION of 240:
@@ -144,7 +144,7 @@ FROM IMAGE_RECORDS
 WHERE X_RESOLUTION = 200;
 
 COUNT(*)  
-258341
+258329
 ````
 
 Find the number of images with an X_RESOLTUION of 96:
@@ -166,7 +166,7 @@ FROM IMAGE_RECORDS
 WHERE X_RESOLUTION = 72;
 
 COUNT(*)  
-269
+296
 ````
 
 Find the number of images where the image length is less than the image width:
@@ -177,7 +177,7 @@ FROM IMAGE_RECORDS
 WHERE IMG_LENGTH < IMG_WIDTH;
 
 COUNT(*)  
-19265
+19257
 ````
 
 Find the X_RESOLUTIONs that exist in the set of images where the image length is less than the image width:
@@ -227,7 +227,7 @@ WHERE IMG_LENGTH < IMG_WIDTH
 AND X_RESOLUTION = 300;
 
 COUNT(*)  
-19076
+19068
 ````
 
 Find the number of images where the X_RESOLUTION is 400 and the image length is less than the image width:
@@ -249,9 +249,9 @@ SELECT *
 FROM IMAGE_RECORDS
 WHERE IMG_LENGTH = 1;
 
-FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION  	ID  
-127284.007	\HC\R\1979\03\27   1979-03-27	4	            1696	    1	            200	            200	            221926
-171445.001	\HC\R\1983\06\28   1983-06-28	4	            1696	    1	            200	            200	            287401
+FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION	IS_OVERLAYED	ID  
+127284.007	\HC\R\1979\03\27   1979-03-27	4	            1696	    1	            200	            200	        	FALSE			221882
+171445.001	\HC\R\1983\06\28   1983-06-28	4	            1696	    1	            200	            200	            FALSE			287357
 ````
 
 ##Identified Cropped Image Segments
@@ -261,10 +261,10 @@ FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  
   It appears these images are really 300 DPI images that were cropped and had the resolution incorrectly set:
   
   ````
-  FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION  	ID  
-  53255.001	    \HC\R\1965\09\23   1965-09-23	4	            3568	    5536	        300	            300	            119627
-  53255.002	    \HC\R\1965\09\23   1965-09-23	4	            3568	    5536	        300	            300	            119628
-  53255.003     \HC\R\1965\09\23   1965-09-23	4	            3568	    1859	        72	            72	            119629
+  FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION	IS_OVERLAYED	ID  
+  53255.001	    \HC\R\1965\09\23   1965-09-23	4	            3568	    5536	        300	            300	            FALSE			119609
+  53255.002	    \HC\R\1965\09\23   1965-09-23	4	            3568	    5536	        300	            300	            FALSE			119610
+  53255.003     \HC\R\1965\09\23   1965-09-23	4	            3568	    1859	        72	            72	            FALSE			119611
   ````
 
 * For the 2 images in this segment with 200 DPI, handle these **manually**:
@@ -297,7 +297,7 @@ Outline of high-level approach:
   AND (X_RESOLUTION = 300 OR X_RESOLUTION=72);
   
   COUNT(*)  
-  19260
+  19252
   ````
 
 4. Process the results, and overwrite the existing local image with the OverlayImage.overlay().
