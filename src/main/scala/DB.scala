@@ -73,7 +73,20 @@ object DBImageRecord {
       AND (X_RESOLUTION = 300 OR X_RESOLUTION=72)
       ORDER BY FILEDATE
       """).list
+    }
+  }
 
+  /* Query to update isOverlay */
+  def updateIsOverlay(imageRecord: ImageRecord, isOverlay: Boolean): Int = {
+    database withSession { implicit session =>
+      // Update Query
+      val updateOverlay = Q.update[(Boolean, Int)]("""
+        UPDATE IMAGE_RECORDS
+        SET IS_OVERLAYED = ?
+        WHERE ID = ?
+        """)
+      // Perform update and return number of roms updates
+      updateOverlay(isOverlay, imageRecord.id.getOrElse(-1)).first
     }
   }
 }
