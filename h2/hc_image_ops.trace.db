@@ -961,3 +961,94 @@ SELECT *
 FROM IMAGE_RECORDS
 WHERE FNAME = '69019.001" [42000-182]
 2015-10-02 13:59:59 pageStore: Transaction log could not be truncated; size: 18 MB
+10-05 12:57:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT *
+FROM IMAGE_RECORDS
+WHERE FNAME LIKE =[*] '53255%'"; SQL statement:
+SELECT *
+FROM IMAGE_RECORDS
+WHERE FNAME LIKE = '53255%' [42000-182]
+10-05 13:28:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT *
+FROM IMAGE_RECORDS
+WHERE IMG_LENGTH < IMG_WIDTH
+AND (X_RESOLUTION = 300 OR X_RESOLUTION=72)
+ORDERBY[*] FILEDATE"; SQL statement:
+SELECT *
+FROM IMAGE_RECORDS
+WHERE IMG_LENGTH < IMG_WIDTH
+AND (X_RESOLUTION = 300 OR X_RESOLUTION=72)
+ORDERBY FILEDATE [42000-182]
+2015-10-05 17:04:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Parameter "#1" is not set; SQL statement:
+
+        UPDATE IMAGE_RECORDS
+        SET IS_OVERLAYED = ?
+        WHERE ID = ?
+       [90012-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:81)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:164)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:77)
+	at org.h2.command.Command.executeUpdate(Command.java:253)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:198)
+	at com.zaxxer.hikari.proxy.PreparedStatementProxy.execute(PreparedStatementProxy.java:44)
+	at com.zaxxer.hikari.proxy.PreparedStatementJavassistProxy.execute(PreparedStatementJavassistProxy.java)
+	at scala.slick.jdbc.StatementInvoker.results(StatementInvoker.scala:38)
+	at scala.slick.jdbc.StatementInvoker.iteratorTo(StatementInvoker.scala:22)
+	at scala.slick.jdbc.Invoker$class.foreach(Invoker.scala:64)
+	at scala.slick.jdbc.StatementInvoker.foreach(StatementInvoker.scala:16)
+	at scala.slick.jdbc.Invoker$class.build(Invoker.scala:47)
+	at scala.slick.jdbc.StatementInvoker.build(StatementInvoker.scala:16)
+	at scala.slick.jdbc.Invoker$class.list(Invoker.scala:39)
+	at scala.slick.jdbc.StatementInvoker.list(StatementInvoker.scala:16)
+	at com.austindata.DBImageRecord$$anonfun$updateIsOveraly$1.apply(DB.scala:86)
+	at com.austindata.DBImageRecord$$anonfun$updateIsOveraly$1.apply(DB.scala:81)
+	at scala.slick.backend.DatabaseComponent$DatabaseDef$class.withSession(DatabaseComponent.scala:34)
+	at scala.slick.jdbc.JdbcBackend$DatabaseFactoryDef$$anon$3.withSession(JdbcBackend.scala:46)
+	at com.austindata.DBImageRecord$.updateIsOveraly(DB.scala:81)
+	at $line9.$read$$iw$$iw$.<init>(<console>:14)
+	at $line9.$read$$iw$$iw$.<clinit>(<console>)
+	at $line9.$eval$.$print$lzycompute(<console>:7)
+	at $line9.$eval$.$print(<console>:6)
+	at $line9.$eval.$print(<console>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at scala.tools.nsc.interpreter.IMain$ReadEvalPrint.call(IMain.scala:784)
+	at scala.tools.nsc.interpreter.IMain$Request.loadAndRun(IMain.scala:1039)
+	at scala.tools.nsc.interpreter.IMain$WrappedRequest$$anonfun$loadAndRunReq$1.apply(IMain.scala:636)
+	at scala.tools.nsc.interpreter.IMain$WrappedRequest$$anonfun$loadAndRunReq$1.apply(IMain.scala:635)
+	at scala.reflect.internal.util.ScalaClassLoader$class.asContext(ScalaClassLoader.scala:31)
+	at scala.reflect.internal.util.AbstractFileClassLoader.asContext(AbstractFileClassLoader.scala:19)
+	at scala.tools.nsc.interpreter.IMain$WrappedRequest.loadAndRunReq(IMain.scala:635)
+	at scala.tools.nsc.interpreter.IMain.interpret(IMain.scala:567)
+	at scala.tools.nsc.interpreter.IMain.interpret(IMain.scala:563)
+	at scala.tools.nsc.interpreter.ILoop.reallyInterpret$1(ILoop.scala:802)
+	at scala.tools.nsc.interpreter.ILoop.interpretStartingWith(ILoop.scala:836)
+	at scala.tools.nsc.interpreter.ILoop.command(ILoop.scala:694)
+	at scala.tools.nsc.interpreter.ILoop.processLine(ILoop.scala:404)
+	at scala.tools.nsc.interpreter.ILoop.loop(ILoop.scala:424)
+	at scala.tools.nsc.interpreter.ILoop$$anonfun$process$1.apply$mcZ$sp(ILoop.scala:925)
+	at scala.tools.nsc.interpreter.ILoop$$anonfun$process$1.apply(ILoop.scala:911)
+	at scala.tools.nsc.interpreter.ILoop$$anonfun$process$1.apply(ILoop.scala:911)
+	at scala.reflect.internal.util.ScalaClassLoader$.savingContextLoader(ScalaClassLoader.scala:97)
+	at scala.tools.nsc.interpreter.ILoop.process(ILoop.scala:911)
+	at scala.tools.nsc.interpreter.ILoop.main(ILoop.scala:936)
+	at xsbt.ConsoleInterface.run(ConsoleInterface.scala:62)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at sbt.compiler.AnalyzingCompiler.call(AnalyzingCompiler.scala:101)
+	at sbt.compiler.AnalyzingCompiler.console(AnalyzingCompiler.scala:76)
+	at sbt.Console.sbt$Console$$console0$1(Console.scala:22)
+	at sbt.Console$$anonfun$apply$2$$anonfun$apply$1.apply$mcV$sp(Console.scala:23)
+	at sbt.Console$$anonfun$apply$2$$anonfun$apply$1.apply(Console.scala:23)
+	at sbt.Console$$anonfun$apply$2$$anonfun$apply$1.apply(Console.scala:23)
+	at sbt.Logger$$anon$4.apply(Logger.scala:85)
+	at sbt.TrapExit$App.run(TrapExit.scala:248)
+	at java.lang.Thread.run(Unknown Source)
