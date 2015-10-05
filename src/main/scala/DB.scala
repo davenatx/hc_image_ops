@@ -78,7 +78,7 @@ object DBImageRecord {
   }
 
   /* Query to update isOverlay */
-  def updateIsOverlay(imageRecord: ImageRecord, isOverlay: Boolean): Int = {
+  def updateIsOverlayed(imageRecord: ImageRecord, isOverlay: Boolean): Int = {
     database withSession { implicit session =>
       // Update Query
       val updateOverlay = Q.update[(Boolean, Int)]("""
@@ -111,6 +111,6 @@ object DBImageRecord {
     TIFFImage.toFile(f, List(newImage))
   })
 
-  val numUpdates = updateIsOverlay(croppedRecord, true)
+  val numUpdates = updateIsOverlayed(croppedRecord, true)
   */
 }
