@@ -92,25 +92,25 @@ object DBImageRecord {
   }
 
   /**
-  *
-  * REPL Code to test overlaying concept.  Everything appears to work propertly
-  *
-  import java.io.File
-  import com.dmp.image._
-  import com.austindata.DBImageRecord._
-
-  val croppedRecords = croppedImages
-
-  val croppedRecord = croppedImages.head
-
-  val f = new File(croppedRecord.filePath, croppedRecord.fileName)
-
-  // res5: Option[Boolean] = Some(true)
-  TIFFImage.fromFile(f).headOption map (img => {
-    val newImage = OverlayImage.overlay(img, croppedRecord.imageWidth.toInt, 5536)
-    TIFFImage.toFile(f, List(newImage))
-  })
-
-  val numUpdates = updateIsOverlayed(croppedRecord, true)
-  */
+   *
+   * REPL Code to test overlaying concept.  Everything appears to work propertly
+   *
+   * import java.io.File
+   * import com.dmp.image._
+   * import com.austindata.DBImageRecord._
+   *
+   * val croppedRecords = croppedImages
+   *
+   * val croppedRecord = croppedImages.head
+   *
+   * val f = new File(croppedRecord.filePath, croppedRecord.fileName)
+   *
+   * // res5: Option[Boolean] = Some(true)
+   * TIFFImage.fromFile(f).headOption map (img => {
+   * val newImage = OverlayImage.overlay(img, croppedRecord.imageWidth.toInt, 5536)
+   * TIFFImage.toFile(f, List(newImage))
+   * })
+   *
+   * val numUpdates = updateIsOverlayed(croppedRecord, true)
+   */
 }
