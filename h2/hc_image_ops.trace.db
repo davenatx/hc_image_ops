@@ -1,3 +1,963 @@
-2015-09-22 22:09:22 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "IMAGE_RECORDS" not found; SQL statement:
-drop table "IMAGE_RECORDS" [42102-189]
+2015-10-01 15:41:56 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: The process cannot access the file because another process has locked a portion of the file"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: The process cannot access the file because another process has locked a portion of the file"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: The process cannot access the file because another process has locked a portion of the file
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:41:56 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:41:57 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:41:57 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:41:58 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:41:58 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:41:59 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:41:59 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:00 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:00 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:01 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:01 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:02 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:02 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:03 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:03 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:04 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:04 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:05 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:05 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:06 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:07 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:07 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:08 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:08 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:09 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:09 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:10 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:10 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:11 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:11 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:12 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:12 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:13 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:13 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:14 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:14 database: flush
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.write(FileStore.java:331)
+	at org.h2.store.PageStore.writePage(PageStore.java:1368)
+	at org.h2.store.PageStreamData.write(PageStreamData.java:106)
+	at org.h2.store.PageOutputStream.storePage(PageOutputStream.java:147)
+	at org.h2.store.PageOutputStream.flush(PageOutputStream.java:155)
+	at org.h2.store.PageLog.flushOut(PageLog.java:875)
+	at org.h2.store.PageLog.flush(PageLog.java:682)
+	at org.h2.store.PageStore.flushLog(PageStore.java:1021)
+	at org.h2.engine.Database.flush(Database.java:2037)
+	at org.h2.store.WriterThread.run(WriterThread.java:86)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 13 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.writeBytes(Native Method)
+	at java.io.RandomAccessFile.write(Unknown Source)
+	at org.h2.store.fs.FileDisk.write(FilePathDisk.java:484)
+	at org.h2.store.fs.FileUtils.writeFully(FileUtils.java:372)
+	at org.h2.store.FileStore.write(FileStore.java:328)
+	... 10 more
+2015-10-01 15:42:15 database: close
+org.h2.message.DbException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.message.DbException.convertIOException(DbException.java:330)
+	at org.h2.store.FileStore.seek(FileStore.java:297)
+	at org.h2.store.PageStore.readPage(PageStore.java:1324)
+	at org.h2.store.PageStore.getPage(PageStore.java:749)
+	at org.h2.index.PageBtreeIndex.getPage(PageBtreeIndex.java:148)
+	at org.h2.index.PageBtreeIndex.writeRowCount(PageBtreeIndex.java:446)
+	at org.h2.store.PageStore.writeIndexRowCounts(PageStore.java:410)
+	at org.h2.store.PageStore.checkpoint(PageStore.java:433)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1343)
+	at org.h2.engine.Database.close(Database.java:1276)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:63)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.IOException: Stream Closed"; "C:/Users/david/ScalaProjects/hc_image_ops/h2/hc_image_ops.h2.db" [90031-189]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	... 12 more
+Caused by: java.io.IOException: Stream Closed
+	at java.io.RandomAccessFile.seek0(Native Method)
+	at java.io.RandomAccessFile.seek(Unknown Source)
+	at org.h2.store.fs.FileDisk.position(FilePathDisk.java:477)
+	at org.h2.store.FileStore.seek(FileStore.java:293)
+	... 9 more
+10-02 13:40:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT *
+FROM IMAGE_RECORDS
+WHERE FNAME = [*]'69019.001"""; SQL statement:
+SELECT *
+FROM IMAGE_RECORDS
+WHERE FNAME = '69019.001" [42000-182]
+10-02 13:40:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT *
+FROM IMAGE_RECORDS
+WHERE FNAME = [*]'69019.001"""; SQL statement:
+SELECT *
+FROM IMAGE_RECORDS
+WHERE FNAME = '69019.001" [42000-182]
+2015-10-02 13:59:59 pageStore: Transaction log could not be truncated; size: 18 MB
