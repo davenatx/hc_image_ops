@@ -12,6 +12,7 @@ import javax.sql.DataSource
 package object austindata {
   private val config = ConfigFactory.load("settings.properties")
 
+  lazy val overlayLength = config.getInt("overlayLength")
   /* DB Properties */
   lazy val dbUrl = config.getString("dbUrl")
   lazy val dbDriver = config.getString("dbDriver")
