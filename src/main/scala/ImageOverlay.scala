@@ -39,6 +39,6 @@ object ImageOverlay extends LazyLogging {
  */
 object OverlyaImages extends App {
   /* Retrieve cropped image records from database and overlay */
-  ImageOverlay(DBImageRecord.croppedImages)
+  ImageOverlay.overlayCroppedImages(DBImageRecord.croppedImages)
 }
 
