@@ -286,9 +286,9 @@ Outline of high-level approach:
 
 1. Determine if each FNAME (filename) in the database is unique. **Yes**
 
-2. Determine an average image length to use as a default iamge length for the image to overlay on.  Becuase the 72 DPI images are really 300 DPI images, use one factor.  The average image length calculated above is 5527.  However, it appears 5536 is the most common image length in this semgent.  **I am using 5536**
+2. Determine an average image length to use as a default image length for the image to overlay on.  Because the 72 DPI images are really 300 DPI images, use one factor.  The average image length calculated above is 5527.  However, it appears 5536 is the most common image length in this segment.  **I am using 5536**
 
-3. Query the cropped images that are 72 DPI or 300 DPI together becuase they are **really** the same resolution:
+3. Query the cropped images that are 72 DPI or 300 DPI together because they are **really** the same resolution:
 
   ````
   SELECT COUNT(*)
@@ -300,8 +300,22 @@ Outline of high-level approach:
   19252
   ````
 
-4. Process the results, and overwrite the existing local image with the OverlayImage.overlay().
+4. Process the results, and overwrite the existing image with the OverlayImage.overlay().
 
 5. For each image that is overlayed, update the IS_OVERLAYED field in the database to true.
 
-6. After these images have been "fixed" I need to devise a way to export the images where IS_OVERLAYED = true.  I not only neeed to export the overlayed images, but I need to include all of their pages.  I would like to do this by year.  Therefore, the images should be exported to a yearly folder.  From here, we can QC them, and if we are happy, we can index them to replace the cropped images on the image repository.
+After these images have been overlayed, I need to "export" them to another directory so they can be quality controlled and indexed.  Because our indexer cannot index single pages of a document, I need to ensure I design this process to "export" all of the pages of a document regardless if all the pages were overlayed.
+
+6. Query records where IS_OVERALYED = true
+
+7. Map over this list.  Split the fileName on the "." to obtain the document number this image or page represents.
+
+8. Query the records where the FNAME is like the document number extracted in step 7.  This process serves to retrieve all of the pages that belong to a document. 
+
+9. For each record in the list from step 8, copy each file to a "yearly" folder based on the year associated with the record.
+
+10. In order to successfully do this, ensure the yearly folder exists in the copy operation.  If it does not, create it.
+
+11. The copy process will overwrite some existing images in the yearly folder.  However, this should not be a problem because 1) all the file names in the database are unique and 2) this is an expected case because if the first and last page of a document were both overlayed, both pages will be represented in the records returned in step 6.  Therefore, step 8 will process the same document twice.  While this is not necessarily the most efficient way to handle this process, it is probably the simplest.
+
+12. To determine the export routine exports the expected number of images, the export process should implement a counter.  It should output the number or records returned from step 6.  This number represents each page of an image, or record, that was overlayed.  **We already know it should equal 19,252.**  For the copy process in step 8, a counter should track the running total of files copies.  It should also handle the case where the files already exist, like is mentioned in step 11, and omit these from the total.  Ultimately, this total will represent the number of unique files copied.  This total can be confirmed on the file system of the "export" process is complete. 
