@@ -249,9 +249,9 @@ SELECT *
 FROM IMAGE_RECORDS
 WHERE IMG_LENGTH = 1;
 
-FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION	IS_OVERLAYED	ID  
-127284.007	\HC\R\1979\03\27   1979-03-27	4	            1696	    1	            200	            200	        	FALSE			221882
-171445.001	\HC\R\1983\06\28   1983-06-28	4	            1696	    1	            200	            200	            FALSE			287357
+FNAME       FPATH              FILEDATE   COMPRESSION   IMG_WIDTH   IMG_LENGTH    X_RESOLUTION    Y_RESOLUTION  IS_OVERLAYED  ID  
+127284.007  \HC\R\1979\03\27   1979-03-27 4             1696      1             200             200           FALSE     221882
+171445.001  \HC\R\1983\06\28   1983-06-28 4             1696      1             200             200             FALSE     287357
 ````
 
 ##Identified Cropped Image Segments
@@ -261,10 +261,10 @@ FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  
   It appears these images are really 300 DPI images that were cropped and had the resolution incorrectly set:
   
   ````
-  FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  	X_RESOLUTION  	Y_RESOLUTION	IS_OVERLAYED	ID  
-  53255.001	    \HC\R\1965\09\23   1965-09-23	4	            3568	    5536	        300	            300	            FALSE			119609
-  53255.002	    \HC\R\1965\09\23   1965-09-23	4	            3568	    5536	        300	            300	            FALSE			119610
-  53255.003     \HC\R\1965\09\23   1965-09-23	4	            3568	    1859	        72	            72	            FALSE			119611
+  FNAME       FPATH              FILEDATE   COMPRESSION   IMG_WIDTH   IMG_LENGTH    X_RESOLUTION    Y_RESOLUTION  IS_OVERLAYED  ID  
+  53255.001     \HC\R\1965\09\23   1965-09-23 4             3568      5536          300             300             FALSE     119609
+  53255.002     \HC\R\1965\09\23   1965-09-23 4             3568      5536          300             300             FALSE     119610
+  53255.003     \HC\R\1965\09\23   1965-09-23 4             3568      1859          72              72              FALSE     119611
   ````
 
 * For the 2 images in this segment with 200 DPI, handle these **manually**:
@@ -282,13 +282,15 @@ FNAME  	    FPATH  	           FILEDATE  	COMPRESSION  	IMG_WIDTH  	IMG_LENGTH  
 
 ##Solution Overview
 
+This process will query cropped image records.  Then it will overlay the images in order to "fix" them.  Finally, these images are "exported" to another directory so they can be quality controlled and indexed.  Because our indexer cannot index single pages of a document, I need to ensure I design this process to "export" all of the pages of a document regardless if all the pages were overlayed.  Also, I would like to organize the export directory by year.  Therefore, I should point to a parent "export" directory.  Then, each record that is exported should reside in a "yearly" folder under this "export" directory.
+
 Outline of high-level approach:
 
 1. Determine if each FNAME (filename) in the database is unique. **Yes**
 
 2. Determine an average image length to use as a default image length for the image to overlay on.  Because the 72 DPI images are really 300 DPI images, use one factor.  The average image length calculated above is 5527.  However, it appears 5536 is the most common image length in this segment.  **I am using 5536**
 
-3. Query the cropped images that are 72 DPI or 300 DPI together because they are **really** the same resolution:
+3. Query the cropped image records that are 72 DPI or 300 DPI together because they are **really** the same resolution:
 
   ````
   SELECT COUNT(*)
@@ -304,8 +306,6 @@ Outline of high-level approach:
 
 5. For each image that is overlayed, update the IS_OVERLAYED field in the database to true.
 
-After these images have been overlayed, I need to "export" them to another directory so they can be quality controlled and indexed.  Because our indexer cannot index single pages of a document, I need to ensure I design this process to "export" all of the pages of a document regardless if all the pages were overlayed.
-
 6. Query records where IS_OVERALYED = true
 
 7. Map over this list.  Split the fileName on the "." to obtain the document number this image or page represents.
@@ -318,4 +318,4 @@ After these images have been overlayed, I need to "export" them to another direc
 
 11. The copy process will overwrite some existing images in the yearly folder.  However, this should not be a problem because 1) all the file names in the database are unique and 2) this is an expected case because if the first and last page of a document were both overlayed, both pages will be represented in the records returned in step 6.  Therefore, step 8 will process the same document twice.  While this is not necessarily the most efficient way to handle this process, it is probably the simplest.
 
-12. To determine the export routine exports the expected number of images, the export process should implement a counter.  It should output the number or records returned from step 6.  This number represents each page of an image, or record, that was overlayed.  **We already know it should equal 19,252.**  For the copy process in step 8, a counter should track the running total of files copies.  It should also handle the case where the files already exist, like is mentioned in step 11, and omit these from the total.  Ultimately, this total will represent the number of unique files copied.  This total can be confirmed on the file system of the "export" process is complete. 
+12. To determine the export routine exports the expected number of images, the export process should implement a counter.  It should output the number or records returned from step 6.  This number represents each page of an image, or record, that was overlayed.  **We already know it should equal 19,252.**  For the copy process in step 8, a counter should track the running total of files copies.  It should also handle the case where the files already exist, like is mentioned in step 11, and omit these from the total.  Ultimately, this total will represent the number of unique files copied.  This total can be confirmed on the file system of the "export" process is complete.  
