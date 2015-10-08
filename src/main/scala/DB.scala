@@ -77,6 +77,17 @@ object DBImageRecord {
     }
   }
 
+  /* Query to retrieve images where IS_OVERLAYED is true */
+  def overlayedImages: List[ImageRecord] = {
+    database withSession { implicit session =>
+      Q.queryNA[ImageRecord]("""
+      SELECT *
+      FROM IMAGE_RECORDS
+      WHERE IS_OVERLAYED = true
+      """).list
+    }
+  }
+
   /* Query to update isOverlay */
   def updateIsOverlayed(imageRecord: ImageRecord, isOverlay: Boolean): Int = {
     database withSession { implicit session =>
