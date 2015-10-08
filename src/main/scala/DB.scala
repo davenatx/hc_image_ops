@@ -63,7 +63,9 @@ object DBImageRecord {
   // Implicit conversion to map ResultSet to ImageRecord
   implicit val getImageRecordResult = GetResult(r => ImageRecord(r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<))
 
-  /* Query to retrieve cropped images where the DPI is 300 or 72 */
+  /** 
+   * Query to retrieve cropped images where the DPI is 300 or 72 
+   */
   def croppedImages: List[ImageRecord] = {
     database withSession { implicit session =>
       Q.queryNA[ImageRecord]("""
@@ -77,7 +79,9 @@ object DBImageRecord {
     }
   }
 
-  /* Query to retrieve images where IS_OVERLAYED is true */
+  /** 
+   * Query to retrieve images where IS_OVERLAYED is true 
+   */
   def overlayedImages: List[ImageRecord] = {
     database withSession { implicit session =>
       Q.queryNA[ImageRecord]("""
@@ -88,7 +92,26 @@ object DBImageRecord {
     }
   }
 
-  /* Query to update isOverlay */
+  /**
+   * Query to retireve records by document number
+   *
+   * This method expects a document number without a page extension. 
+   */
+  def documentRecords(documentNumber: String): List[ImageRecord] = {
+    database withSession { implicit session =>
+
+      val documentQuery = Q.query[String, ImageRecord]("""
+        SELECT *
+        FROM IMAGE_RECORDS
+        WHERE FNAME LIKE ?
+        """)
+      documentQuery(documentNumber + "%").list
+    }
+  }
+
+  /**
+   * Query to update isOverlay 
+   */
   def updateIsOverlayed(imageRecord: ImageRecord, isOverlay: Boolean): Int = {
     database withSession { implicit session =>
       // Update Query
