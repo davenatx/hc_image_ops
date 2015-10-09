@@ -7,10 +7,14 @@ import java.sql.Date
 
 object DBImageRecord {
 
-  /* Domain Object representing an Image Record */
+  /**
+   * Domain Object representing an Image Record 
+   */
   case class ImageRecord(fileName: String, filePath: String, fileDate: Date, compression: Int, imageWidth: Long, imageLength: Long, xResolution: Long, yResolution: Long, isOverlayed: Boolean, id: Option[Int] = None)
 
-  /* Slick Table object.  The * projection has bi-directional mapping (<>) to ImageRecord */
+  /**
+   * Slick Table object  
+   */
   class ImageRecords(tag: Tag) extends Table[ImageRecord](tag, "IMAGE_RECORDS") {
     def id = column[Int]("ID", O.PrimaryKey, O.AutoInc)
     def fileName = column[String]("FNAME")
@@ -30,30 +34,41 @@ object DBImageRecord {
     def isOverlayedIndex = index("IDX_IS_OVERLAY", isOverlayed, unique = false)
   }
 
-  /* The query interface for the IndexRecords table */
+  /**
+   * The query interface for the IndexRecords table 
+   */
   val imageRecords: TableQuery[ImageRecords] = TableQuery[ImageRecords]
 
-  /* Create the tables */
+  /**
+   * Create the tables 
+   */
   def createTables {
     database withSession { implicit session =>
       imageRecords.ddl.create
     }
   }
 
-  /* Drop the tables */
+  /**
+   * Drop the tables 
+   */
   def dropTables {
     database withSession { implicit session =>
       imageRecords.ddl.drop
     }
   }
 
-  /* Insert one IndexRecord into IndexRecords */
+  /**
+   * Insert one IndexRecord into IndexRecords table 
+   */
   def insert(record: ImageRecord) {
     database withSession { implicit session =>
       imageRecords += (record)
     }
   }
-  /* Batch Insert a sequence of IndexRecord into IndexRecords */
+  
+  /**
+   * Batch Insert a sequence of IndexRecord into IndexRecords 
+   */
   def insert(records: Seq[ImageRecord]) {
     database withSession { implicit session =>
       imageRecords ++= records
@@ -95,7 +110,7 @@ object DBImageRecord {
   /**
    * Query to retireve records by document number
    *
-   * This method expects a document number without a page extension. 
+   * This method expects a document number without a page extension
    */
   def documentRecords(documentNumber: String): List[ImageRecord] = {
     database withSession { implicit session =>
