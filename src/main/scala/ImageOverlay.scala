@@ -27,7 +27,7 @@ object ImageOverlay extends LazyLogging {
 
       /* Update the IS_OVERALYED database field to true */
       updateIsOverlayed(record, true) match {
-        case 1 => logger.info("Image record with filename: {} sucessfully updated", record.fileName)
+        case 1 => logger.trace("Image record with filename: {} sucessfully updated", record.fileName)
         case _ => logger.warn("Image record with filename: {} failed to update IS_OVERLAYED field", record.fileName)
       }
     })
