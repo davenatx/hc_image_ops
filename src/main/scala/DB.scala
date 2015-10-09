@@ -8,12 +8,12 @@ import java.sql.Date
 object DBImageRecord {
 
   /**
-   * Domain Object representing an Image Record 
+   * Domain Object representing an Image Record
    */
   case class ImageRecord(fileName: String, filePath: String, fileDate: Date, compression: Int, imageWidth: Long, imageLength: Long, xResolution: Long, yResolution: Long, isOverlayed: Boolean, id: Option[Int] = None)
 
   /**
-   * Slick Table object  
+   * Slick Table object
    */
   class ImageRecords(tag: Tag) extends Table[ImageRecord](tag, "IMAGE_RECORDS") {
     def id = column[Int]("ID", O.PrimaryKey, O.AutoInc)
@@ -35,12 +35,12 @@ object DBImageRecord {
   }
 
   /**
-   * The query interface for the IndexRecords table 
+   * The query interface for the IndexRecords table
    */
   val imageRecords: TableQuery[ImageRecords] = TableQuery[ImageRecords]
 
   /**
-   * Create the tables 
+   * Create the tables
    */
   def createTables {
     database withSession { implicit session =>
@@ -49,7 +49,7 @@ object DBImageRecord {
   }
 
   /**
-   * Drop the tables 
+   * Drop the tables
    */
   def dropTables {
     database withSession { implicit session =>
@@ -58,16 +58,16 @@ object DBImageRecord {
   }
 
   /**
-   * Insert one IndexRecord into IndexRecords table 
+   * Insert one IndexRecord into IndexRecords table
    */
   def insert(record: ImageRecord) {
     database withSession { implicit session =>
       imageRecords += (record)
     }
   }
-  
+
   /**
-   * Batch Insert a sequence of IndexRecord into IndexRecords 
+   * Batch Insert a sequence of IndexRecord into IndexRecords
    */
   def insert(records: Seq[ImageRecord]) {
     database withSession { implicit session =>
@@ -78,8 +78,8 @@ object DBImageRecord {
   // Implicit conversion to map ResultSet to ImageRecord
   implicit val getImageRecordResult = GetResult(r => ImageRecord(r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<, r.<<))
 
-  /** 
-   * Query to retrieve cropped images where the DPI is 300 or 72 
+  /**
+   * Query to retrieve cropped images where the DPI is 300 or 72
    */
   def croppedImages: List[ImageRecord] = {
     database withSession { implicit session =>
@@ -94,8 +94,8 @@ object DBImageRecord {
     }
   }
 
-  /** 
-   * Query to retrieve images where IS_OVERLAYED is true 
+  /**
+   * Query to retrieve images where IS_OVERLAYED is true
    */
   def overlayedImages: List[ImageRecord] = {
     database withSession { implicit session =>
@@ -125,7 +125,7 @@ object DBImageRecord {
   }
 
   /**
-   * Query to update isOverlay 
+   * Query to update isOverlay
    */
   def updateIsOverlayed(imageRecord: ImageRecord, isOverlay: Boolean): Int = {
     database withSession { implicit session =>
