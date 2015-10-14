@@ -80,7 +80,7 @@ object ImageReader extends LazyLogging {
 object PopulateDatabase extends App {
   dropTables
   createTables
-  val rootDir = new File("C:/ADINAS01/HC/R")
+  val rootDir = new File(sourceDirectory)
   ImageReader.readAndInsertFunc(rootDir)
 }
 
