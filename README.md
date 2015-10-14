@@ -1,7 +1,11 @@
 # hc_image_ops
 The purpose of this project is to identify cropped images (images where the image length is less than the image width) and overlay the image onto a standard size page.  This is accomplished by reading the "HC" image repository and inserting a database record representing each TIFF image into the included H2 database.  This step is necessary because we need to use SQL to investigate this data to determine how to complete this project.  For example, we need to not only determine which images are "cropped", but we also need to identify the different resolutions in order to create a process to "fix" them.
 
-All of the images presently in the "HC" image repository are read and stored in the accompanying H2 database.  
+All of the images presently in the "HC" image repository are read and stored in the accompanying H2 database.
+
+After this project was designed, it was discovered it would have multiple segments.  Specificaly, this project processed 1/1/1920 - 9/28/1984.  However there is potentially another project for 1850 - 1920.  This data has not been posted to our system yet therefore this data is not in the image repository.
+
+**The information below pertains to images in the 1/1/1920 - 9/28/1984 segment**
 
 ##Database 
 
@@ -318,4 +322,12 @@ Outline of high-level approach:
 
 11. The copy process will overwrite some existing images in the yearly folder.  However, this should not be a problem because 1) all the file names in the database are unique and 2) this is an expected case because if the first and last page of a document were both overlayed, both pages will be represented in the records returned in step 6.  Therefore, step 8 will process the same document twice.  While this is not necessarily the most efficient way to handle this process, it is probably the simplest.
 
-12. To determine the export routine exports the expected number of images, the export process should implement a counter.  It should output the number or records returned from step 6.  This number represents each page of an image, or record, that was overlayed.  **We already know it should equal 19,252.**  For the copy process in step 8, a counter should track the running total of files copies.  It should also handle the case where the files already exist, like is mentioned in step 11, and omit these from the total.  Ultimately, this total will represent the number of unique files copied.  This total can be confirmed on the file system once the "export" process is complete.  
+12. To determine the export routine exports the expected number of images, the export process should implement a counter.  It should output the number or records returned from step 6.  This number represents each page of an image, or record, that was overlayed.  **We already know it should equal 19,252.**  For the copy process in step 8, a counter should track the running total of files copies.  It should also handle the case where the files already exist, like is mentioned in step 11, and omit these from the total.  Ultimately, this total will represent the number of unique files copied.  This total can be confirmed on the file system once the "export" process is complete.
+
+##Solution Code
+
+* **ImageReader.scala** drops and creates the database.  It also scans the souceDirectory specified in the settings.properties file and populates the database.
+
+* **ImageOverlay.scala** queries the database for cropped images and overlays them.
+
+* **ImageExport.scala** queries the database for overlayed images and exports all the files representing a document where at least one page was overlayed.  These files are exported to the exportDirectory specified in the settings.properties file.
