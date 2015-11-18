@@ -12,23 +12,6 @@ This SQL creates an index on the IMG_LENGTH field and orders it in descending or
 CREATE INDEX IDX_IMG_LENGTH_DESC ON IMAGE_RECORDS(IMG_LENGTH DESC);  
 ````
 
-Query all the records and order by IMG_LENGTH in descending order:
-
-````
-SELECT * 
-FROM IMAGE_RECORDS
-ORDER BY IMG_LENGTH DESC;
-````
-
-Query distinct image lengths where resolution is 300:
-
-````
-SELECT DISTINCT IMG_LENGTH
-FROM IMAGE_RECORDS 
-WHERE X_RESOLUTION = 300
-ORDER BY IMG_LENGTH DESC;
-````
-
 Find the average image length where the length is between 5000 and 5999 for 300 DPI::
 
 ````
@@ -235,7 +218,7 @@ FROM IMAGE_RECORDS
 WHERE IMG_LENGTH = 1;
 
 FNAME       FPATH              FILEDATE   COMPRESSION   IMG_WIDTH   IMG_LENGTH    X_RESOLUTION    Y_RESOLUTION  IS_OVERLAYED  ID  
-127284.007  \HC\R\1979\03\27   1979-03-27 4             1696      1             200             200           FALSE     221882
+127284.007  \HC\R\1979\03\27   1979-03-27 4             1696      1             200             200             FALSE     221882
 171445.001  \HC\R\1983\06\28   1983-06-28 4             1696      1             200             200             FALSE     287357
 ````
 
@@ -257,7 +240,7 @@ FNAME       FPATH              FILEDATE   COMPRESSION   IMG_WIDTH   IMG_LENGTH  
   \HC\R\1979\03\27\127284.007 **(Bad Image)**
   \HC\R\1983\06\28\171445.001 **(Bad Image)**
 
-* For the 19,076 images in this segment with 300 DPI, use an image length of 5527 (calculated above) as the image length for the image to overlay on.
+* For the 19,076 images in this segment with 300 DPI, use an image length of 5536 as the image length for the image to overlay on.
 
 * For the 3 images in this segment with 400 DPI, handle these **manually**:
   
