@@ -1,6 +1,6 @@
 # Phase 1
 
-**The following pertains to Phase 1, or the images between 1/1/1920 - 9/28/1984**.
+**The following pertains to Phase 1 of the project:  The images between 1/1/1920 - 9/28/1984**.
 
 ##SQL
 
