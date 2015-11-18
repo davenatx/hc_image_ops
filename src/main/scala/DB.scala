@@ -80,7 +80,8 @@ object DBImageRecord {
 
   /**
    * Query to retrieve cropped images where the DPI is 300 or 72
-   */
+   * Phase 1
+   
   def croppedImages: List[ImageRecord] = {
     database withSession { implicit session =>
       Q.queryNA[ImageRecord]("""
@@ -88,6 +89,23 @@ object DBImageRecord {
       FROM IMAGE_RECORDS
       WHERE IMG_LENGTH < IMG_WIDTH
       AND (X_RESOLUTION = 300 OR X_RESOLUTION=72)
+      AND IS_OVERLAYED = false
+      ORDER BY FILEDATE
+      """).list
+    }
+  }
+  */
+  /**
+   * Query to retrieve cropped images where the DPI is 300
+   * Phase 2
+   */
+  def croppedImages: List[ImageRecord] = {
+    database withSession { implicit session =>
+      Q.queryNA[ImageRecord]("""
+      SELECT *
+      FROM IMAGE_RECORDS
+      WHERE IMG_LENGTH < IMG_WIDTH
+      AND X_RESOLUTION = 300
       AND IS_OVERLAYED = false
       ORDER BY FILEDATE
       """).list
